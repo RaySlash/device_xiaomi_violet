@@ -15,6 +15,15 @@ $(call inherit-product, device/xiaomi/violet/device.mk)
 # Inherit some common PixelExperience stuff.
 TARGET_BOOT_ANIMATION_RES := 1080
 
+# Gapps
+ifeq ($(CURRENT_BUILD_TYPE), gapps)
+# Infos
+TARGET_SHIPS_SEPERATE_GAPPS_BUILD := true
+WITH_GAPPS := true
+TARGET_GAPPS_ARCH := arm64
+IS_PHONE := true
+endif
+
 $(call inherit-product, vendor/aosp/common.mk)
 
 # Device identifier. This must come after all inclusions.
